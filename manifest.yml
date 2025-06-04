@@ -1,0 +1,35 @@
+lzc-sdk-version: "0.1"
+name: OpenReader
+package: lazycat.community.app.openreader
+version: 0.3.0
+description: EPUB, PDF, DOCX, MD, and TXT file text to speech document reader.
+homepage: https://github.com/richardr1126/OpenReader-WebUI
+author: richardr1126
+application:
+    subdomain: openreader
+    background_task: true
+    public_path:
+        - /
+    routes:
+        - /=http://openreader-webui:3003/
+services:
+    openreader-webui:
+        image: registry.lazycat.cloud/czyt/richardr1126/openreader-webui:55e8d120106bbc2d
+        environment:
+            - API_BASE=http://openai-edge-tts:5050/v1
+        binds:
+            - /lzcapp/var/docstore:/app/docstore
+            
+    openai-edge-tts:
+        image: registry.lazycat.cloud/czyt/travisvn/openai-edge-tts:7009e20b96fb6c44
+        environment:
+            - API_KEY=lazycattts
+            - PORT=5050
+            - DEFAULT_VOICE=zh-CN-YunjianNeural
+            - DEFAULT_RESPONSE_FORMAT=mp3
+            - DEFAULT_SPEED=1.0
+            - DEFAULT_LANGUAGE=zh-CN
+            - REQUIRE_API_KEY=False
+            - REMOVE_FILTER=False
+            - EXPAND_API=True
+            - DETAILED_ERROR_LOGGING=True
