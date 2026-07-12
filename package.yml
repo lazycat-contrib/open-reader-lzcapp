@@ -1,0 +1,16 @@
+package: lazycat.community.app.openreader
+version: 1.2.1
+name: OpenReader
+description: "EPUB, PDF, DOCX, MD, and TXT file text to speech document reader"
+min_os_version: 1.5.0
+homepage: https://github.com/richardr1126/OpenReader-WebUI
+author: richardr1126
+
+locales:
+  zh:
+    name: "OpenReader"
+    description: "支持 EPUB、PDF、DOCX、TXT 和 MD 文件的文本转语音文档阅读器"
+  en:
+    name: "OpenReader"
+    description: "EPUB, PDF, DOCX, MD, and TXT file text to speech document reader"
+

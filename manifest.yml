@@ -1,10 +1,3 @@
-lzc-sdk-version: "0.1"
-name: OpenReader
-package: lazycat.community.app.openreader
-version: 1.2.1
-description: EPUB, PDF, DOCX, MD, and TXT file text to speech document reader.
-homepage: https://github.com/richardr1126/OpenReader-WebUI
-author: richardr1126
 application:
   subdomain: openreader
   background_task: true
@@ -14,7 +7,7 @@ application:
     - /=http://openreader-webui:3003/
 services:
   openreader-webui:
-    #  ghcr.io/richardr1126/openreader-webui:1.2.1
+    # upstream: ghcr.io/richardr1126/openreader-webui:1.2.1
     image: registry.lazycat.cloud/czyt/richardr1126/openreader-webui:84af30d79031b66e
     environment:
       - API_BASE=http://openai-edge-tts:5050/v1
@@ -35,11 +28,3 @@ services:
       - REMOVE_FILTER=False
       - EXPAND_API=True
       - DETAILED_ERROR_LOGGING=True
-
-locales:
-  zh:
-    name: "OpenReader"
-    description: "EPUB、PDF、DOCX、TXT 和 MD 文件文本转语音文档阅读器。"
-  en:
-    name: "OpenReader"
-    description: "EPUB, PDF, DOCX, MD, and TXT file text to speech document reader."
