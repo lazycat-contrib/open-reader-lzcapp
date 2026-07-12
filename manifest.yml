@@ -7,13 +7,12 @@ application:
     - /=http://openreader-webui:3003/
 services:
   openreader-webui:
-    # upstream: ghcr.io/richardr1126/openreader-webui:1.2.1
-    image: registry.lazycat.cloud/czyt/richardr1126/openreader-webui:84af30d79031b66e
+    # upstream: ghcr.io/richardr1126/openreader-webui:v4.4.0
+    image: registry.lazycat.cloud/czyt/richardr1126/openreader-webui:f6fa167fd30014e3
     environment:
       - API_BASE=http://openai-edge-tts:5050/v1
     binds:
       - /lzcapp/var/docstore:/app/docstore
-
   openai-edge-tts:
     # travisvn/openai-edge-tts:latest
     image: registry.lazycat.cloud/czyt/travisvn/openai-edge-tts:f9152e6f818570e8
